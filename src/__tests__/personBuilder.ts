@@ -1,6 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
 
-import { FluentBuilder, ProxiedBuilder, ArrayBuilder } from 'src';
+import { FluentBuilder, ProxiedBuilder, ArrayBuilder } from 'src/index';
 
 interface HumanName {
     given: string[];
@@ -63,9 +63,9 @@ class AddressBuilder extends FluentBuilder<Address> {
     }
 }
 
-class HumanNameBuilder extends FluentBuilder<HumanName> {
-    public static Create(name?: HumanName): HumanNameBuilder {
-        return new HumanNameBuilder(name);
+class NameBuilder extends FluentBuilder<HumanName> {
+    public static Create(name?: HumanName): NameBuilder {
+        return new NameBuilder(name);
     }
 
     protected getInitial(): HumanName {
@@ -75,12 +75,12 @@ class HumanNameBuilder extends FluentBuilder<HumanName> {
         };
     }
 
-    public withGiven(...given: /*?*/ string[]): HumanNameBuilder {
-        return new HumanNameBuilder({ given }, this);
+    public withGiven(...given: /*?*/ string[]): NameBuilder {
+        return new NameBuilder({ given }, this);
     }
 
-    public withFamily(family: string): HumanNameBuilder {
-        return new HumanNameBuilder({ family }, this);
+    public withFamily(family: string): NameBuilder {
+        return new NameBuilder({ family }, this);
     }
 }
 
@@ -106,10 +106,10 @@ class PersonBuilder extends FluentBuilder<Person> {
         return this.current.name;
     }
 
-    public named(): ProxiedBuilder<PersonBuilder, HumanNameBuilder> {
+    public named(): ProxiedBuilder<PersonBuilder, NameBuilder> {
         return this.withBuilderProxy(
             'name',
-            HumanNameBuilder.Create(this.name),
+            NameBuilder.Create(this.name),
             (name) => new PersonBuilder({ name }, this),
         );
     }
