@@ -1,6 +1,6 @@
 {
   "name": "@narthollis/typed-fluent-builders",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "dist/commonjs/index.js",
   "module": "dist/module/index.js",
   "typings": "dist/types/index.d.ts",
