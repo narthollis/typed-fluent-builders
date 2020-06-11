@@ -18,6 +18,7 @@
   "scripts": {
     "build": "npm-run-all build:module build:commonjs",
     "build:module": "tsc",
-    "build:commonjs": "tsc --project tsconfig.commonjs.json"
+    "build:commonjs": "tsc --project tsconfig.commonjs.json",
+    "test": "jest"
   }
 }
