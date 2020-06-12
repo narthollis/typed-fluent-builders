@@ -79,7 +79,7 @@ interface Person {
     phoneNumbers: Phone[];
 }
 
-NameBuilder extends FluentBuilder<Name> {
+class NameBuilder extends FluentBuilder<Name> {
     public static Create(name?: Name): NameBuilder {
         return new NameBuilder(name);
     }
@@ -100,7 +100,7 @@ NameBuilder extends FluentBuilder<Name> {
     }
 }
 
-PhoneBuilder extends FluentBuilder<Phone> {
+class PhoneBuilder extends FluentBuilder<Phone> {
     public static Create(phone?: Phone): PhoneBuilder {
         return new PhoneBuilder(phone);
     }
@@ -121,7 +121,7 @@ PhoneBuilder extends FluentBuilder<Phone> {
     }
 }
 
-PersonBuilder extends FluentBuilder<Person> {
+class PersonBuilder extends FluentBuilder<Person> {
     public static Create(person?: Person): PersonBuilder {
         return new PersonBuilder(person);
     }
